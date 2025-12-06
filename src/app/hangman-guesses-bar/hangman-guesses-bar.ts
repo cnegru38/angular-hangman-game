@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-hangman-guesses-bar',
-  imports: [],
+  selector: 'hangman-guesses-bar',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './hangman-guesses-bar.html',
-  styleUrl: './hangman-guesses-bar.css',
+  styleUrls: ['./hangman-guesses-bar.css'],
 })
 export class HangmanGuessesBar {
+  @Input()
+  maxGuesses = 6;
 
+  @Input({ required: true })
+  guessesLeft!: number;
+
+  get bars() {
+    return Array(this.maxGuesses).fill(0); }
 }

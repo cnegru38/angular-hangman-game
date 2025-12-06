@@ -1,1 +1,6 @@
-<p>hangman-keyboard works!</p>
+<button
+  *ngFor="let letter of letters"
+  [disabled]="guessedLetters.has(letter)"
+  (click)="onClick(letter)">
+  {{ letter }}
+</button>

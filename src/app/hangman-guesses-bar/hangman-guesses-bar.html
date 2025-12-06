@@ -1,1 +1,7 @@
-<p>hangman-guesses-bar works!</p>
+<div class="guesses">
+  <div
+    *ngFor="let _ of bars; let i = index"
+    class="bar"
+    [class.active]="i < guessesLeft">
+  </div>
+</div>

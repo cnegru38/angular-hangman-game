@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-hangman-word',
-  imports: [],
+  selector: 'hangman-word',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './hangman-word.html',
-  styleUrl: './hangman-word.css',
+  styleUrls: ['./hangman-word.css']
 })
 export class HangmanWord {
+  @Input({ required: true }) word!: string;
+  @Input({ required: true }) guessedLetters!: Set<string>;
 
+  get letters(): string[] {
+    return Array.from(this.word);
+  }
 }

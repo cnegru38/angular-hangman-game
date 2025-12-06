@@ -1,1 +1,3 @@
-<p>hangman-word works!</p>
+<span *ngFor="let letter of letters">
+  {{ guessedLetters.has(letter) ? letter : '_' }}
+</span>

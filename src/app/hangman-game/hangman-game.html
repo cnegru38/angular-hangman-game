@@ -1,1 +1,16 @@
-<p>hangman-game works!</p>
+<section class="game">
+  <hangman-guesses-bar
+    [maxGuesses]="maxGuesses"
+    [guessesLeft]="guessesLeft">
+  </hangman-guesses-bar>
+
+  <hangman-word
+    [word]="word"
+    [guessedLetters]="guessedLetters">
+  </hangman-word>
+
+  <hangman-keyboard
+    [guessedLetters]="guessedLetters"
+    (letterGuessed)="onGuess($event)">
+  </hangman-keyboard>
+</section>
