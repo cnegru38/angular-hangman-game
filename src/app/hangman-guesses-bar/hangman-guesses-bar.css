@@ -1,17 +1,26 @@
 .guesses {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 16px;
 }
 
 .bar {
-  width: 300px;
+  width: 180px;
   height: 16px;
-  background-color: #ccc;
   border-radius: 8px;
+  background-color: #ddd;
+  transition: background-color 0.3s ease;
 }
 
 .bar.active {
   background-color: #2ecc71;
+}
+
+.bar.active.warn {
+  background-color: #f39c12;
+}
+
+.bar.active.danger {
+  background-color: #e74c3c;
 }

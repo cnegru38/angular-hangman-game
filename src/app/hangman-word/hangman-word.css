@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  gap: 12px;
+}
+
+span {
+  font-family: Arial, "Segoe UI", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 6px;
+}

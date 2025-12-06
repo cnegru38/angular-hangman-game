@@ -1,13 +1,15 @@
 <section class="game">
-  <hangman-guesses-bar
-    [maxGuesses]="maxGuesses"
-    [guessesLeft]="guessesLeft">
-  </hangman-guesses-bar>
+  <div class="top">
+    <hangman-guesses-bar
+      [maxGuesses]="maxGuesses"
+      [guessesLeft]="guessesLeft">
+    </hangman-guesses-bar>
 
-  <hangman-word
-    [word]="word"
-    [guessedLetters]="guessedLetters">
-  </hangman-word>
+    <hangman-word
+      [word]="word"
+      [guessedLetters]="guessedLetters">
+    </hangman-word>
+  </div>
 
   <hangman-keyboard
     [guessedLetters]="guessedLetters"

@@ -2,6 +2,8 @@
   <div
     *ngFor="let _ of bars; let i = index"
     class="bar"
-    [class.active]="i < guessesLeft">
+    [class.active]="i < guessesLeft"
+    [class.warn]="i < guessesLeft && isWarning"
+    [class.danger]="i < guessesLeft && isDanger">
   </div>
 </div>
