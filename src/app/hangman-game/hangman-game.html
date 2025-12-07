@@ -11,8 +11,20 @@
     </hangman-word>
   </div>
 
+  <p
+  class="attempts"
+  [class.warn]="isWarning"
+  [class.danger]="isDanger">
+  Remaining attempts: {{ guessesLeft }}
+  </p>
+
   <hangman-keyboard
     [guessedLetters]="guessedLetters"
     (letterGuessed)="onGuess($event)">
   </hangman-keyboard>
+
+  <p class="guessed">
+  Guessed letters: {{ guessedLettersList }}
+  </p>
+
 </section>

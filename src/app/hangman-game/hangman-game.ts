@@ -36,4 +36,22 @@ export class HangmanGame {
       this.wrongGuesses++;
     }
   }
+
+  get isWarning(): boolean {
+  return this.guessesLeft <= 3 && this.guessesLeft > 1;
+  }
+
+get isDanger(): boolean {
+  return this.guessesLeft <= 1;
+  }
+
+  get remainingAttemptsText(): string {
+  return `Remaining attempts: ${this.guessesLeft}`;
+  }
+
+  get guessedLettersList(): string {
+  return this.guessedLetters.size
+    ? Array.from(this.guessedLetters).join(', ')
+    : 'None';
+  }
 }
