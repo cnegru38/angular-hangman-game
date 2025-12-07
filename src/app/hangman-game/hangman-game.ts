@@ -18,10 +18,25 @@ import { HangmanGuessesBar } from '../hangman-guesses-bar/hangman-guesses-bar';
   styleUrls: ['./hangman-game.css']
 })
 export class HangmanGame {
-  word = 'ANGULAR';
+  private readonly WORDS = [
+  'ANGULAR',
+  'TYPESCRIPT',
+  'COMPONENT',
+  'BINDING',
+  'TEMPLATE',
+  'SERVICE',
+  'DIRECTIVE',
+  'MODULE'
+];
+  word = this.getRandomWord();
   guessedLetters = new Set<string>();
   wrongGuesses = 0;
   maxGuesses = 6;
+
+  private getRandomWord(): string {
+  const index = Math.floor(Math.random() * this.WORDS.length);
+  return this.WORDS[index];
+  }
 
   get guessesLeft() {
     return this.maxGuesses - this.wrongGuesses;
@@ -56,7 +71,7 @@ export class HangmanGame {
   return this.guessesLeft <= 3 && this.guessesLeft > 1;
   }
 
-get isDanger(): boolean {
+  get isDanger(): boolean {
   return this.guessesLeft <= 1;
   }
 
@@ -73,8 +88,7 @@ get isDanger(): boolean {
   resetGame() {
   this.guessedLetters.clear();
   this.wrongGuesses = 0;
-
-  // TODO: change the word later
-
+  this.word = this.getRandomWord();
   }
+
 }
