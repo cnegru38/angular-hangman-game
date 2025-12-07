@@ -12,6 +12,8 @@ export class HangmanKeyboard {
   @Input({ required: true })
   guessedLetters!: Set<string>;
 
+  @Input() disabled = false;
+
   @Output()
   letterGuessed = new EventEmitter<string>();
 

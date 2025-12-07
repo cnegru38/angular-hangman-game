@@ -11,6 +11,14 @@
     </hangman-word>
   </div>
 
+  <p *ngIf="hasWon" class="win">
+  You Win!
+  </p>
+
+  <p *ngIf="hasLost" class="lose">
+  Game Over!
+  </p>
+
   <p
   class="attempts"
   [class.warn]="isWarning"
@@ -19,12 +27,20 @@
   </p>
 
   <hangman-keyboard
-    [guessedLetters]="guessedLetters"
-    (letterGuessed)="onGuess($event)">
+  [guessedLetters]="guessedLetters"
+  [disabled]="isGameOver"
+  (letterGuessed)="onGuess($event)">
   </hangman-keyboard>
 
   <p class="guessed">
   Guessed letters: {{ guessedLettersList }}
   </p>
+
+  <button
+  *ngIf="isGameOver"
+  class="reset"
+  (click)="resetGame()">
+  Reset Game
+  </button>
 
 </section>

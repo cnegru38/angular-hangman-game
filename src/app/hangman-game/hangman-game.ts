@@ -28,6 +28,7 @@ export class HangmanGame {
   }
 
   onGuess(letter: string) {
+    if (this.isGameOver) return;
     if (this.guessedLetters.has(letter)) return;
 
     this.guessedLetters.add(letter);
@@ -35,6 +36,20 @@ export class HangmanGame {
     if (!this.word.includes(letter)) {
       this.wrongGuesses++;
     }
+  }
+
+  get hasWon(): boolean {
+  return Array.from(this.word).every(letter =>
+    this.guessedLetters.has(letter)
+  );
+  }
+
+  get hasLost(): boolean {
+    return this.guessesLeft === 0;
+  }
+
+  get isGameOver(): boolean {
+    return this.hasWon || this.hasLost;
   }
 
   get isWarning(): boolean {
@@ -53,5 +68,13 @@ get isDanger(): boolean {
   return this.guessedLetters.size
     ? Array.from(this.guessedLetters).join(', ')
     : 'None';
+  }
+
+  resetGame() {
+  this.guessedLetters.clear();
+  this.wrongGuesses = 0;
+
+  // TODO: change the word later
+
   }
 }
