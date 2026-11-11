@@ -17,7 +17,7 @@ export class HangmanKeyboard {
   @Output()
   letterGuessed = new EventEmitter<string>();
 
-  letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  rows = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'].map(row => row.split(''));
 
   onClick(letter: string) {
     this.letterGuessed.emit(letter);

@@ -26,6 +26,7 @@ export class HangmanGame {
   'TEMPLATE',
   'SERVICE',
   'DIRECTIVE',
+  'ROUTING',
   'MODULE'
 ];
   word = this.getRandomWord();
@@ -33,9 +34,10 @@ export class HangmanGame {
   wrongGuesses = 0;
   maxGuesses = 6;
 
-  private getRandomWord(): string {
-  const index = Math.floor(Math.random() * this.WORDS.length);
-  return this.WORDS[index];
+  private getRandomWord(previous?: string): string {
+  const candidates = this.WORDS.filter(w => w !== previous);
+  const index = Math.floor(Math.random() * candidates.length);
+  return candidates[index];
   }
 
   get guessesLeft() {
@@ -88,7 +90,7 @@ export class HangmanGame {
   resetGame() {
   this.guessedLetters.clear();
   this.wrongGuesses = 0;
-  this.word = this.getRandomWord();
+  this.word = this.getRandomWord(this.word);
   }
 
 }

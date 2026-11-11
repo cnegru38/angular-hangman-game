@@ -1,6 +1,8 @@
-<button
-  *ngFor="let letter of letters"
-  [disabled]="disabled || guessedLetters.has(letter)"
-  (click)="onClick(letter)">
-  {{ letter }}
-</button>
+<div class="row" *ngFor="let row of rows">
+  <button
+    *ngFor="let letter of row"
+    [disabled]="disabled || guessedLetters.has(letter)"
+    (click)="onClick(letter)">
+    {{ letter }}
+  </button>
+</div>
